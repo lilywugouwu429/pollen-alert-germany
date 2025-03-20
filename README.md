@@ -22,7 +22,17 @@ This project uses GitHub Actions to automatically scrape pollen concentration da
 
 First, click the "Fork" button in the top right corner of this repository to create a copy in your GitHub account.
 
-### 2. Configure GitHub Secrets
+### 2. Enable GitHub Actions workflow
+
+⚠️ **IMPORTANT**: The workflow is disabled by default. After forking, you need to enable it:
+
+1. Go to your forked repository
+2. Click the "Actions" tab
+3. Click the "I understand my workflows, go ahead and enable them" button
+4. Find the "Pollen Forecast Alert" workflow
+5. Click the "Enable workflow" button
+
+### 3. Configure GitHub Secrets
 
 In your forked repository, you need to set up the following GitHub Secrets for email delivery:
 
@@ -44,7 +54,7 @@ Optional secrets:
 - `SENDER_NAME`: Sender name (default is "Pollen Alert")
 - `LANGUAGE`: Email language (en-English, de-German)
 
-### 3. Common Email Providers
+### 4. Common Email Providers
 
 Here are SMTP settings for some common email providers:
 
@@ -54,9 +64,9 @@ Here are SMTP settings for some common email providers:
 | Outlook | smtp.office365.com | 587 | false | true | |
 | Yahoo | smtp.mail.yahoo.com | 587 | false | true | |
 
-### 4. GitHub Actions Configuration
+### 5. GitHub Actions Configuration
 
-The repository includes a GitHub Actions workflow file (.github/workflows/pollen_scraper.yml) that is set to run automatically at 7:00 AM UTC (8-9 AM Central European Time) every day.
+The repository includes a GitHub Actions workflow file (.github/workflows/pollen_scraper.yml) that is set to run automatically at 7:00 AM UTC (8-9 AM Central European Time) every day once enabled.
 
 If you want to modify the run time, you can edit the cron expression in that file:
 
@@ -66,7 +76,7 @@ on:
     - cron: '0 7 * * *'  # Runs at 7:00 AM UTC every day
 ```
 
-### 5. Manual Run
+### 6. Manual Run
 
 You can also trigger the workflow manually through the GitHub Actions page:
 
@@ -83,7 +93,7 @@ The script can also be run locally, and supports command line arguments:
 
 ```bash
 # Install dependencies
-pip install requests beautifulsoup4
+pip install -r requirements.txt
 
 # Basic usage
 python pollen_scraper.py --city frankfurt --email-from your.email@example.com --email-to recipient@example.com --email-password yourpassword --smtp-server smtp.example.com --smtp-port 587
@@ -152,6 +162,7 @@ If you encounter issues, check the following:
 2. For Gmail, Outlook, and similar services, you may need to use an "app password" instead of your regular password
 3. Check the GitHub Actions logs for specific error messages
 4. Make sure the city name is spelled correctly and data for that city is available on wetteronline.de
+5. Verify that you've enabled the GitHub Actions workflow after forking
 
 ## License
 
