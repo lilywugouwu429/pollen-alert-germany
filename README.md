@@ -6,6 +6,8 @@
 
 This project uses GitHub Actions to automatically scrape pollen concentration data from [wetteronline.de](https://www.wetteronline.de/pollen/) and send daily email notifications. Perfect for people with pollen allergies who want to monitor local pollen levels.
 
+🔗 **[Live Demo](https://yliu.tech//pollen-alert-germany/)**
+
 ## Features
 
 - 🌱 Automatically fetches pollen forecast data for specified cities
