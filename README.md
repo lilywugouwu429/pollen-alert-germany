@@ -128,18 +128,23 @@ This script supports all German cities with pollen data available on wetteronlin
 - berlin
 - bonn
 - bremen
-- cologne (köln)
+- koeln (for Köln/Cologne)
 - dortmund
 - dresden
-- duesseldorf
+- duesseldorf (for Düsseldorf)
 - frankfurt
 - hamburg
 - hannover
 - karlsruhe
 - leipzig
-- munich (münchen)
-- nuremberg (nürnberg)
+- muenchen (for München/Munich)
+- nuernberg (for Nürnberg/Nuremberg)
 - stuttgart
+
+**Important Note**: When entering city names that contain umlauts (ä, ö, ü), you must convert them to their equivalent form:
+- ä → ae (München → muenchen)
+- ö → oe (Köln → koeln)
+- ü → ue (Düsseldorf → duesseldorf)
 
 To find other cities, visit the [pollen page on wetteronline.de](https://www.wetteronline.de/pollen/) and search for your desired city. Then use the city name part of the URL as the `CITY_NAME` parameter.
 
