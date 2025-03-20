@@ -11,7 +11,7 @@ This project uses GitHub Actions to automatically scrape pollen concentration da
 - 🌱 Automatically fetches pollen forecast data for specified cities
 - 📊 Displays concentration levels for different pollen types in an intuitive format
 - 📧 Supports multiple email service providers (Gmail, Outlook, Yahoo)
-- 🌐 Multi-language support (English and German)
+- 🌐 Multi-language support (English, German, and Chinese)
 - 🔄 Configurable for daily automatic updates
 - 📱 Beautiful HTML email format, mobile-friendly
 - 🔧 Highly customizable with command-line arguments and environment variables
@@ -52,7 +52,7 @@ Optional secrets:
 - `USE_SSL`: Whether to use SSL connection (true or false)
 - `SMTP_AUTH_REQUIRED`: Whether SMTP authentication is required (true or false)
 - `SENDER_NAME`: Sender name (default is "Pollen Alert")
-- `LANGUAGE`: Email language (en-English, de-German)
+- `LANGUAGE`: Email language (en-English, de-German, zh-Chinese)
 
 ### 4. Common Email Providers
 
@@ -103,6 +103,9 @@ python pollen_scraper.py --city munich --email-from your.email@gmail.com --email
 
 # Switch language
 python pollen_scraper.py --city hamburg --language de --provider outlook
+
+# Use Chinese language
+python pollen_scraper.py --city berlin --language zh --provider gmail
 ```
 
 ### Supported Command Line Arguments
@@ -118,8 +121,23 @@ python pollen_scraper.py --city hamburg --language de --provider outlook
 --no-auth           No SMTP authentication required
 --sender-name       Sender name
 --provider          Email provider (gmail/outlook/yahoo)
---language          Email language (en/de)
+--language          Email language (en/de/zh)
 ```
+
+## Multi-Language Support
+
+The script supports three languages for email notifications:
+
+1. **English (en)** - Default language with English pollen names
+2. **German (de)** - German email interface with English pollen name translations
+3. **Chinese (zh)** - Chinese email interface with Chinese pollen name translations
+
+Each language version includes:
+- Localized interface text
+- Translated pollen type names
+- Appropriate concentration level indicators
+
+You can select the language by setting the `LANGUAGE` environment variable or using the `--language` command line argument.
 
 ## Supported Cities
 
@@ -147,6 +165,27 @@ This script supports all German cities with pollen data available on wetteronlin
 - ü → ue (Düsseldorf → duesseldorf)
 
 To find other cities, visit the [pollen page on wetteronline.de](https://www.wetteronline.de/pollen/) and search for your desired city. Then use the city name part of the URL as the `CITY_NAME` parameter.
+
+## Pollen Types and Translations
+
+The script provides translations for common pollen types in German, English, and Chinese:
+
+| German (Original) | English | Chinese |
+|-------------------|---------|---------|
+| Ambrosia | Ragweed | 豚草 |
+| Ampfer | Sorrel | 酸模 |
+| Beifuß | Mugwort | 艾蒿 |
+| Birke | Birch | 桦树 |
+| Buche | Beech | 山毛榉 |
+| Erle | Alder | 桤木 |
+| Esche | Ash | 梣树 |
+| Gräser | Grasses | 草 |
+| Hasel | Hazel | 榛树 |
+| Pappel | Poplar | 杨树 |
+| Roggen | Rye | 黑麦 |
+| Ulme | Elm | 榆树 |
+| Wegerich | Plantain | 车前草 |
+| Weide | Willow | 柳树 |
 
 ## Customization and Contribution
 
